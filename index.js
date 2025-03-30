@@ -3,8 +3,9 @@ const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://chatty-frontend-eight.vercel.app/",
+    origin: ["http://localhost:3000", "https://chatty-frontend-eight.vercel.app"], // ✅ Allow multiple origins
     methods: ["GET", "POST"],
+    credentials: true, // ✅ Allow credentials (if needed)
   },
 });
 
